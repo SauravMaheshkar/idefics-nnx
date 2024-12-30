@@ -1,13 +1,24 @@
 [project]
-name = "acme"
+name = "idefics-nnx"
 version = "0.0.1"
-description = "python template"
+description = "Flax NNX Implementation of Idefics family of VLMs by 🤗"
 readme = ".github/README.md"
 requires-python = ">=3.10"
 license = { file = "LICENSE" }
 dependencies = [
-    "pytest>=6.0.0",
-    "ruff",
+  "einops",
+  "flax>=0.9.0",
+  "jaxtyping"
+]
+
+[project.optional-dependencies]
+test = [
+  "pytest>=6.0.0",
+  "torch",
+  "transformers",
+]
+dev = [
+  "ruff"
 ]
 
 [tool.ruff]
@@ -22,6 +33,6 @@ lines-after-imports = 2
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 filterwarnings = [
-    "ignore::DeprecationWarning",
+  "ignore::DeprecationWarning",
 	"ignore::UserWarning"
 ]
